@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/doug/code/HG/msimm-0.1-3.0'
+let g:netrw_dirhist_2='/Users/doug/.vim/snippets'
+let g:netrw_dirhist_3='/Users/doug/code/HG/msimm-0.1-3.0'
+let g:netrw_dirhist_4='/Users/doug/tmp'
