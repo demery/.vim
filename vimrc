@@ -30,12 +30,15 @@ if has("win32")
     silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
   endfunction
   colors ir_black
+  set backupdir=c:\tmp,c:\temp
+  set directory=c:\tmp,c:\temp
 else
   " tmp files
   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 endif
 
+:set viminfo+=h
 " many config tips from: http://items.sjbach.com/319/configuring-vim-right
 
 " general vim stuff
