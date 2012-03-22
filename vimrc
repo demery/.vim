@@ -102,9 +102,15 @@ set ignorecase
 set smartcase
 set encoding=utf-8
 
-" keybindings
-map <leader>t :NERDTreeToggle<CR>
+" Windows
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>h :wincmd h<CR>
+map <leader>l :wincmd l<CR>
 
 " NERDTree
 let NERDTreeShowBookmarks=1
+map <leader>t :NERDTreeToggle<CR>
 
+" Kill current buffer
+map <leader>w :Kwbd<CR>
