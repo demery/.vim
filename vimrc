@@ -1,5 +1,7 @@
 set nocompatible " don't act all vi; must be first
 
+call pathogen#infect()
+
 if has("win32")
   source $VIMRUNTIME/vimrc_example.vim
   source $VIMRUNTIME/mswin.vim
@@ -110,7 +112,9 @@ map <leader>l :wincmd l<CR>
 
 " NERDTree
 let NERDTreeShowBookmarks=1
-map <leader>t :NERDTreeToggle<CR>
+map <leader>r :NERDTreeToggle<CR>
 
+" FuzzyFileFinder
+map <Leader>t :FuzzyFinderTextMate<Enter>
 " Kill current buffer
 map <leader>w :Kwbd<CR>
