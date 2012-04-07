@@ -118,3 +118,6 @@ map <leader>r :NERDTreeToggle<CR>
 map <Leader>t :FuzzyFinderTextMate<Enter>
 " Kill current buffer
 map <leader>w :Kwbd<CR>
+
+" remap makegreen
+map <Leader>g <Plug>MakeGreen 
