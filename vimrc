@@ -96,7 +96,7 @@ if has("win32")
 else
   set listchars=tab:>-,trail:·,eol:$
 endif
-nmap <silent> <leader>s :set nolist!<CR>
+nmap <silent> <leader>$ :set nolist!<CR>
 
 " navigation
 nnoremap <C-e> 3<C-e>
