@@ -1,6 +1,10 @@
 set nocompatible " don't act all vi; must be first
 
 call pathogen#infect()
+" no toolbars
+if has("gui_running")
+    set guioptions=egmrt
+endif
 
 if has("win32")
   source $VIMRUNTIME/vimrc_example.vim
