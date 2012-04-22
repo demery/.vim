@@ -114,8 +114,12 @@ map <leader>k :wincmd k<CR>
 map <leader>h :wincmd h<CR>
 map <leader>l :wincmd l<CR>
 
+" spelling on
+map <leader>s :setlocal spell! spelllang=en_us<CR>
+
 " NERDTree
 let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
 map <leader>r :NERDTreeToggle<CR>
 
 " FuzzyFileFinder
