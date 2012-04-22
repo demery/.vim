@@ -129,3 +129,11 @@ map <leader>w :Kwbd<CR>
 
 " remap makegreen
 map <Leader>g <Plug>MakeGreen 
+
+" my checklist macros
+" done
+nmap <leader>xd 0rx
+" n/a
+nmap <leader>xn 0r-
+" started, awaiting completion
+nmap <leader>xs 0r/
