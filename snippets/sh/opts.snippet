@@ -1,0 +1,24 @@
+function usage() {
+	echo "Usage: $(basename $${1:0}) ${2:[OPTS] }${3:ARGS}"
+	cat <<EOF
+
+${4:description}
+
+With options:
+    -h print this message
+
+EOF
+}
+
+while getopts h i
+do  case "$i" in
+  h)
+  usage
+  exit 1;;
+  [?])  
+    usage
+    exit 1;;
+  esac
+done
+shift $(($OPTIND-1))
+
