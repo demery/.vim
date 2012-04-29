@@ -35,7 +35,7 @@ if has("win32")
     endif
     silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
   endfunction
-  colors ir_black
+  colors vividchalk
   set backupdir=c:\tmp,c:\temp
   set directory=c:\tmp,c:\temp
 else
