@@ -116,6 +116,16 @@ map <leader>l :wincmd l<CR>
 
 " spelling on
 map <leader>s :setlocal spell! spelllang=en_us<CR>
+" spell: add word, skip to next
+nmap <leader>zg zg]s
+" spell: add word to global list, skip to next
+nmap <leader>zG zG]s
+" spell: next misspelled word
+nmap <leader>zn ]s
+" spell: previous misspelled word
+nmap <leader>zp [s
+" spell: last added word
+nmap <leader>zb <C-o>
 
 " NERDTree
 let NERDTreeShowBookmarks=1
