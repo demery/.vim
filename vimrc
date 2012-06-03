@@ -148,3 +148,5 @@ nmap <leader>xd 0rx
 nmap <leader>xn 0r-
 " started, awaiting completion
 nmap <leader>xs 0r/
+" fix hashes from :sym => val to sym: val
+nmap <leader>fh :%s/:\([a-zA-Z_]\+\) =>/\1:/g<CR>
