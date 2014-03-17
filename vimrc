@@ -49,7 +49,7 @@ endif
 " many config tips from: http://items.sjbach.com/319/configuring-vim-right
 
 " general vim stuff
-" set nu            " show line numbers
+set nu            " show line numbers
 set hidden        " don't require writes before switching buffers
 set history=1000
 let mapleader= "," 
