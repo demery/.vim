@@ -1,9 +1,6 @@
 This is my .vim directory. It contains a number of packages and
 plugins, each with its own licensing terms.
 
-I do mostly rails programming and so have rails.vim, snipmate.vim
-for that purpose. 
-
 My `vimrc` is here, as well. My `~/.vimrc` is a symlink to this
 file.
 
