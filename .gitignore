@@ -2,3 +2,7 @@
 /rails.vba
 /doc/tags
 *.bak
+/bundle/*
+/plugin/*
+/autoload/*.vim
+/compiler/*.vim
