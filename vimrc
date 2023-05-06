@@ -3,44 +3,22 @@ set nocompatible " don't act all vi; must be first
 call pathogen#infect()
 " no toolbars
 if has("gui_running")
-    set guioptions=egmrt
-    colors vividchalk
+  set guioptions=egmrt
+  colors vividchalk
+else
+  colorscheme vividchalk
 endif
 
-if has("win32")
-  source $VIMRUNTIME/vimrc_example.vim
-  source $VIMRUNTIME/mswin.vim
-  behave mswin
-
-  set diffexpr=MyDiff()
-  function MyDiff()
-    let opt = '-a --binary '
-    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-    let arg1 = v:fname_in
-    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-    let arg2 = v:fname_new
-    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-    let arg3 = v:fname_out
-    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-    let eq = ''
-    if $VIMRUNTIME =~ ' '
-      if &sh =~ '\<cmd'
-        let cmd = '""' . $VIMRUNTIME . '\diff"'
-        let eq = '"'
-      else
-        let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-      endif
-    else
-      let cmd = $VIMRUNTIME . '\diff'
-    endif
-    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-  endfunction
-  colors vividchalk
-  set backupdir=c:\tmp,c:\temp
-  set directory=c:\tmp,c:\temp
+if has('win32') || has ('win64')
+  let $VIMHOME = $VIM."/vimfiles"
 else
-  " tmp files
+  let $VIMHOME = $HOME."/.vim"
+endif
+
+if (has("win32") || has("win64")) && filereadable($VIMHOME/vimrc_windows_additions)
+  so $VIMHOME/vimrc_windows_additions
+else
+  " tmp files; don't cludder the file dir with ~* files
   set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 endif
@@ -51,27 +29,46 @@ endif
 " general vim stuff
 set nu            " show line numbers
 set hidden        " don't require writes before switching buffers
-set history=1000
-let mapleader= "," 
+set history=1000  " keep a long history
+let mapleader= "," " leader for shortcut commands
 "set wildmode=list:longest " show completion options
 
 " stop making noise; people hate that
 set visualbell
 
-" wildmode tab completion
+" wildmode tab completion; more useful Ctrl-n completions
 set wildmode=longest,list,full
 set wildmenu
 
 " See :help shortmess for the breakdown of what this changes.
+" 
+" flag  meaning when present  ~
+"   f  use "(3 of 5)" instead of "(file 3 of 5)"
+"   i  use "[noeol]" instead of "[Incomplete last line]"
+"   l  use "999L, 888C" instead of "999 lines, 888 characters"
+"   m  use "[+]" instead of "[Modified]"
+"   n  use "[New]" instead of "[New File]"
+"   r  use "[RO]" instead of "[readonly]"
+"   w  use "[w]" instead of "written" for file write message and "[a]" instead of "appended" for ':w >> file' command
+"   x  use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix format]" and "[mac]" instead of "[mac format]".
+"   a  all of the above abbreviations
+"
+"   [snip]
+"   t  truncate file message at the start if it is too long to fit on the command-line, "<" will appear in the left most column.
+"   [snip]
+"   I  don't give the intro message when starting Vim |:intro|.
+"   [snip]
 set shortmess=atI
 
 " display and appearance
-" set title
-set bg=dark
-set ruler         " show line and column numbers
-" always display the staus line
+set bg=dark " dark background
+set ruler   " show line and column numbers
+" always display the status line
 set laststatus=2
+" show useful stuff on the status line like full path to the file, its type
+" and the line and column number of the cursor
 set statusline=%F%m%r%h%w\ (%{&ff}){%Y}[%l,%v][%p%%] 
+" different colors for active pane
 hi StatusLine cterm=NONE ctermbg=darkgreen ctermfg=white gui=bold guibg=green guifg=black 
 hi StatusLineNC cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black 
 
@@ -97,8 +94,9 @@ if has("win32")
 else
   set listchars=tab:>-,trail:·,eol:$
 endif
-nmap <silent> <leader>$ :set nolist!<CR>
 
+" I don't remember what the next lines do
+nmap <silent> <leader>$ :set nolist!<CR>
 " navigation
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
