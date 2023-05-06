@@ -41,7 +41,7 @@ set wildmode=longest,list,full
 set wildmenu
 
 " See :help shortmess for the breakdown of what this changes.
-" 
+"
 " flag  meaning when present  ~
 "   f  use "(3 of 5)" instead of "(file 3 of 5)"
 "   i  use "[noeol]" instead of "[Incomplete last line]"
@@ -67,17 +67,17 @@ set ruler   " show line and column numbers
 set laststatus=2
 " show useful stuff on the status line like full path to the file, its type
 " and the line and column number of the cursor
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}[%l,%v][%p%%] 
+set statusline=%F%m%r%h%w\ (%{&ff}){%Y}[%l,%v][%p%%]
 " different colors for active pane
-hi StatusLine cterm=NONE ctermbg=darkgreen ctermfg=white gui=bold guibg=green guifg=black 
-hi StatusLineNC cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black 
+hi StatusLine cterm=NONE ctermbg=darkgreen ctermfg=white gui=bold guibg=green guifg=black
+hi StatusLineNC cterm=NONE ctermbg=lightgrey ctermfg=black gui=bold guibg=#060606 guifg=black
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
 " coding
 syntax on
-filetype on 
+filetype on
 filetype plugin on
 filetype indent on
 set tabstop=2
@@ -94,6 +94,11 @@ if has("win32")
 else
   set listchars=tab:>-,trail:·,eol:$
 endif
+
+" trim whitespace on save
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save  = 1
+let g:strip_whitespace_confirm  = 0
 
 " I don't remember what the next lines do
 nmap <silent> <leader>$ :set nolist!<CR>
@@ -137,7 +142,7 @@ map <Leader>t :FuzzyFinderTextMate<Enter>
 map <leader>w :Kwbd<CR>
 
 " remap makegreen
-map <Leader>g <Plug>MakeGreen 
+map <Leader>g <Plug>MakeGreen
 
 " my checklist macros
 " done
