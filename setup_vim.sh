@@ -18,7 +18,7 @@ read -r -d '' PLUGINS <<'EOF'
   https://github.com/godlygeek/tabular
   https://github.com/ntpeters/vim-better-whitespace
   https://github.com/preservim/nerdtree.git
-  https://github.com/scrooloose/nerdcommenter
+  https://github.com/tpope/vim-commentary
   https://github.com/tpope/vim-endwise
   https://github.com/tpope/vim-fugitive
   https://github.com/tpope/vim-surround
