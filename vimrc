@@ -4,9 +4,9 @@ call pathogen#infect()
 " no toolbars
 if has("gui_running")
   set guioptions=egmrt
-  colors vividchalk
+  colors desert
 else
-  colorscheme vividchalk
+  colorscheme desert
 endif
 
 if has('win32') || has ('win64')
